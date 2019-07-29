@@ -1,0 +1,62 @@
+<div>
+  <h2>Angular Features Dashboard</h2>
+  <!-- Udmy Demo  Start-->
+
+  <div class="row"> 
+    <!-- Loop -->
+   <div class="col-md-3">
+      <label>List</label><br>
+    <li *ngFor="let author of authors">
+      {{author}}
+    </li>
+   </div>
+  
+    <!-- Two way binding [(BANANA BOX)] -->
+    <div class="col-md-3">
+      <div>
+        <label>Two way binding with custom Pipe</label><br>
+        <input [(ngModel)]='email' (keyup.enter)="emailFun()" />
+        {{email | camelcase}}
+      </div>
+    </div>
+
+    <!-- Custom Pipe -->
+    <div class="col-md-3">
+      <div>
+        <label>Custom Pipe</label><br>
+        <p>{{pipeText | summery:10}}</p>
+      </div>
+    </div>
+
+    <!-- Start Rate using Dynamic class adding -->
+    <div class="col-md-3">
+      <label>Start Rate by Dynamic class</label><br>
+      <span class="fa fa-star" [class.checked]='isChecked' (click)="rateMe()"></span>
+      <span class="fa fa-star" [class.checked]='isChecked' (click)="rateMe()"></span>
+      <span class="fa fa-star" [class.checked]='isChecked' (click)="rateMe()"></span>
+      <span class="fa fa-star" [class.checked]='isChecked' (click)="rateMe()"></span>
+      <span class="fa fa-star" [class.checked]='isChecked' (click)="rateMe()"></span>
+    </div>
+  
+  </div>
+  
+  <!-- Udmy Demo End -->
+
+  <div class="row">
+    <!-- Demo Drop down -->
+    <div class="col-md-3">
+      <label>Dropdown with select</label><br>
+      <select class="custom-select" (change)="changeCity($event)">
+        <option value="">Choose your city</option>
+        <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+        <label>@Input</label><br>
+
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+  </div>
+
+</div>
