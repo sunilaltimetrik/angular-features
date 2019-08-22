@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   // title = 'angular-features';
-
+  post = {
+    isSelectedStar: true,
+    isRed: true
+  }
 }

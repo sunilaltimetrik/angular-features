@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../header.service';
 import { AppService } from '../app.service';
+import { ISelectedStarValue } from '../input-ouput/input-ouput.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,16 @@ import { AppService } from '../app.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  isChecked: boolean=false; 
+  
+  post = {
+    isSelectedStar: true,
+    isRed: true
+  }
+  tweet = {
+    isLiked: false,
+    likesCount: 10
+  }
+  isChecked: boolean=false;   
   data: Object;
   authors: any;
   email: string="ssoni@altimetrik.com";
@@ -20,7 +30,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
       debugger;
-      this.headerService.setTitle('Login');
+      this.headerService.setTitle('Dashboard');
       this.appService.setTitle('custom Title Name');
       this.authors = this.headerService.getAuthors();
     }
@@ -32,11 +42,20 @@ export class DashboardComponent implements OnInit {
     
     // start Rate
     rateMe(){
-       this.isChecked = !this.isChecked ;
+      this.isChecked = !this.isChecked ;
     }
 
     //Drop Down
     changeCity(e) {
       alert(e.target.value);
     }
+// @Input and Output
+  eventPassByOutput(chileValue){
+    console.log("Star rating value : " + chileValue);
+  }
+  // Tweet Practice  @Input and Output
+  getTweetLikes(args){
+    console.log("Total like Count " + args);
+  }
+
 }

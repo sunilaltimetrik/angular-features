@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AppService } from '../app.service'
 import { HeaderService } from '../header.service';
+import { from } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -41,7 +43,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private appService: AppService,
-              private headerService: HeaderService) { }
+              private headerService: HeaderService,
+              private router: Router) { }
 
 
   
@@ -58,12 +61,13 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
+    this.router.navigate(['/main-dashboard']);
     // console.warn(this.liginForm.value);
     // this.appService.loginService().subscribe(data =>{
     //   this.data = data;
     //   console.warn(this.data);
     // })
-    this.appService.loginService();
+    // this.appService.loginService();
   }
 
   changeCity(e) {
@@ -75,7 +79,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-    this.headerService.setTitle('Dashboard');
+    this.headerService.setTitle('Login');
     this.appService.setTitle('custom Title Name');
     this.authors = this.headerService.getAuthors();
   } 
