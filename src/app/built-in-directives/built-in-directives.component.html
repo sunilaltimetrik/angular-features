@@ -1,0 +1,57 @@
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="">
+      <label>*ngIf Example</label><br>
+      <div *ngIf='loopData.length; then firstContent else otherContent'></div>
+      <ng-template #firstContent>Result1 </ng-template>
+      <ng-template #otherContent>Result2 </ng-template>
+    </div>
+    <div class="">
+      <label>hidden Example</label>
+      <div [hidden]='loopData.length == 0'>
+        Show1
+      </div>
+      <div [hidden]='loopData.length > 0'>
+        Show2
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label>ngSwitchCase</label>
+    <ul class="nav nav-pills">
+      <li [class.active]="viewMode=='grid'"><a (click)="changeToGridView()">Grid view</a></li>
+      <li [class.active]="viewMode=='list'"><a (click)="changeToListView()">List view</a></li>
+      <li [class.active]="viewMode=='normal'"><a (click)="changeToNormalView()">normal view</a></li>
+    </ul>
+    <div [ngSwitch]='viewMode'>
+      <div *ngSwitchCase="'grid'">Content of Grid view</div>
+      <div *ngSwitchCase="'list'">Content of list view</div>
+      <div *ngSwitchCase="'normal'">Content of normal view</div>
+      <div *ngSwitchDefault>Other Content</div>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <label>*ngFor and trackBy with Array exp...</label>
+    <small>Protect data Load and creating DOM again & again by using TrackBy in Loop for Special for Bigger List</small>
+    <div>
+
+        <button (click)=loadArrayData()>Load Array Data</button>
+
+        <button (click)=addElement()> addElement</button>
+        <ul *ngFor='let data of myArray; trackBy: trackArrayList'>
+          <li>{{data.value}}</li>
+        </ul>
+    </div>
+    
+  </div>
+  <div class="col-md-2 height100p"  [ngStyle]="{'backgroundColor' : bgColor ? '#671187' : '#337ab7'}" >
+    <button 
+    [ngClass]="{
+      'btn' : primary_value,
+      'btn-primary' : primary_value
+    }" 
+     (click)='styleChange()'> ngClass and ngStyle Example</button>
+  </div>
+</div>

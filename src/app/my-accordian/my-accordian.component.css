@@ -1,0 +1,18 @@
+.outer-container{
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 10px;
+}
+.acc-header{
+    background-color: grey;
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+}
+.acc-body{
+    background-color: wheat;
+    color: black;
+    font-size: 26px;
+    padding: 10px;
+
+}

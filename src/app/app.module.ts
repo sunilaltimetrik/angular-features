@@ -24,6 +24,10 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { ChildComponent } from './main-layout/child/child.component';
 import { InputOuputComponent } from './input-ouput/input-ouput.component';
 import { InputOutputPracticeComponent } from './input-output-practice/input-output-practice.component';
+import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
+import { MyAccordianComponent } from './my-accordian/my-accordian.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { PracticeTemplateDrivenFormComponent } from './practice-template-driven-form/practice-template-driven-form.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { InputOutputPracticeComponent } from './input-output-practice/input-outp
     MainLayoutComponent,
     ChildComponent,
     InputOuputComponent,
-    InputOutputPracticeComponent
+    InputOutputPracticeComponent,
+    BuiltInDirectivesComponent,
+    MyAccordianComponent,
+    TemplateDrivenFormComponent,
+    PracticeTemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,

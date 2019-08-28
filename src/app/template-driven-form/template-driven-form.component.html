@@ -1,0 +1,112 @@
+<form #myForm='ngForm' (ngSubmit)='onSubmit(myForm)'>
+    <div class="form-group">
+      <label for="userName">Username</label>
+
+      <input 
+        class="form-control" 
+        ngModel minlength="4" 
+        maxlength="15" 
+        pattern="sunil" 
+        name='userName'  
+        (change)='log(userName)' 
+        #userName='ngModel' 
+        type="text" 
+        required/>
+      <!-- To display errors message on Validation  -->
+      <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+        <div *ngIf="userName.errors.required">
+          User name is required
+        </div>
+        <div *ngIf="userName.errors.minlength">
+          User name minlength should be {{userName.errors.requiredLength}}
+        </div>
+        <div *ngIf="userName.errors.pattern">
+          User name should follow pattern
+        </div>
+      </div>
+
+    </div>
+     <!-- To display multiple fiel under same object as address -->
+    <div ngModelGroup="address"  #address="ngModelGroup">
+        <div class="form-group">
+            <label for="userId">Type your Emp Id.</label>
+          
+            <input class="form-control" ngModel minlength="1" maxlength="4" pattern="^[0-9]*$" name='userId'
+              (change)='log(userId)' #userId='ngModel' type="text" required />
+            <!-- To display errors message on Validation  -->
+            <div class="alert alert-danger" *ngIf="userId.touched && !userId.valid">
+              <div *ngIf="userId.errors.required">
+                User Id is required
+              </div>
+              <div *ngIf="userId.errors.minlength">
+                User Id minlength should be {{userId.errors.requiredLength}}
+              </div>
+              <div *ngIf="userId.errors.pattern">
+                User Id should follow pattern
+              </div>
+            </div>
+          
+          </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <!-- To display errors red border in input box -->
+      <input class="form-control" ngModel name='password' #password='ngModel' type="text" required/>
+
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required </div>
+      <!--validation property of formControl password.touched && !password.valid -->
+    </div>
+
+    <!-- Checkbox  -->
+    <div class="checkbox">
+      <label>
+        <input ngModel name='isSubscribe' type="checkbox">
+        Subscribe Mail List
+      </label>
+    </div>
+
+    <!-- Dropdown or Select option -->
+    <!-- Hard coded -->
+    <div class="form-group">
+      <label for="">Select Country</label>
+      <select ngModel name="countrySelector" id="" class="form-control">
+        <option value="India">India</option>
+        <option value="US">US</option>
+        <option value="UK">UK</option>
+      </select>
+    </div>
+    <!-- Dyanamic Dropdown-->
+    <div class="form-group">
+      <label for="">Select Gender</label>
+      <select ngModel name="genderSelector" class="form-control">
+        <option *ngFor="let gender of genders" [value]="gender.id">{{gender.value}}</option>
+      </select>
+    </div>
+    <!--Select Dyanamic Dropdown and **MULTIPLE** SELECTION-->
+    <div class="form-group">
+      <label for="">Select Gender</label>
+      <select multiple ngModel name="genderSelector" class="form-control">
+        <option *ngFor="let gender of genders" [value]="gender.id">{{gender.value}}</option>
+      </select>
+    </div>
+    <!-- Select Dyanamic Dropdown using [ngValue] return Object-->
+    <div class="form-group">
+      <label for="">Select Gender 'return Object Value'</label>
+      <select ngModel name="genderSelectorObj" class="form-control">
+        <option *ngFor="let gender of gendersObj" [ngValue]="gender">{{gender.value}}</option>
+      </select>
+    </div>
+    <!-- Radio Button -->
+    <div class="radio" *ngFor = "let rData of radiObj">
+      <label>
+        <input ngModel name="radiObj" type="radio" [value]="rData.id">{{rData.value}}
+      </label>
+    </div>
+
+    <div>{{myForm.value | json}}</div>
+
+    
+
+
+    <button type="submit" class="btn btn-primary" [disabled]='!myForm.valid'>Submit</button>
+  </form>

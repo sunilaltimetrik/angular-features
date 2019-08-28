@@ -1,0 +1,12 @@
+<div class="outer-container">
+  <div class="acc-header" (click)="accToggle()">
+    Header content
+    <i class="fa pull-right" [ngClass]=
+    "{'fa-angle-down':toggleValue,
+      'fa-angle-up':!toggleValue
+      }"></i>
+  </div>
+  <div *ngIf='toggleValue' class="acc-body">
+    Detail contents
+  </div>
+</div>

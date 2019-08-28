@@ -9,7 +9,11 @@ import { ISelectedStarValue } from '../input-ouput/input-ouput.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
+  // Acccordian
+  myAccValue = {
+    isActive: true
+  }
+
   post = {
     isSelectedStar: true,
     isRed: true

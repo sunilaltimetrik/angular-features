@@ -1,4 +1,15 @@
-<i class="fa" 
+
+<!-- <i class="fa" 
    [class.fa-star]="isSelectedStar" 
    [class.fa-star-o]="!isSelectedStar"
-   [class.star-color] = "isSelectedColor" aria-hidden="true" (click)="starRate()"></i>
+   [class.star-color] = "isSelectedColor" aria-hidden="true" (click)="starRate()"></i> -->
+
+<!-- NgClass demo -->
+   <i class="fa" 
+   [ngClass]="{
+     'fa-star' : isSelectedStar,
+     'fa-star-o' : !isSelectedStar,
+     'star-color' : isSelectedColor
+   }" 
+   [ngStyle]="{'padding':'10px'}"
+   aria-hidden="true" (click)="starRate()"></i>
