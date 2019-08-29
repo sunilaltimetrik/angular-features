@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
   constructor(private appService: AppService, private headerService: HeaderService) { }
 
     ngOnInit() {
-      debugger;
       this.headerService.setTitle('Dashboard');
       this.appService.setTitle('custom Title Name');
       this.authors = this.headerService.getAuthors();

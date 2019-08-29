@@ -78,7 +78,6 @@ export class LoginComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
   ngOnInit() {
-    debugger;
     this.headerService.setTitle('Login');
     this.appService.setTitle('custom Title Name');
     this.authors = this.headerService.getAuthors();

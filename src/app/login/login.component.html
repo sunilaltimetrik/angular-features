@@ -1,20 +1,27 @@
-<!-- {{title}} <h1>test title{{title1}}</h1> -->
 
 <div class="row">
   <div class="col-md-4">
-    <form [formGroup]="liginForm" (ngSubmit)="onSubmit()">
-
-      <div class="form-group">
-        <input type="text" formControlName="uid" class="form-control" required>
-      </div>
-
-      <div class="form-group">
-        <input type="text" formControlName="pwd" class="form-control" required>
-      </div>
-
-      <button type="submit" [disabled]="!liginForm.valid" class="btn btn-primary">Submit</button>
-    </form>
+    <div><h4>Reactive form</h4> 
+      <small>(Custom Validation and Custom Validation with Async Call)</small>
+    </div>
+      <reactive-form></reactive-form>
   </div>
+  <!-- Old Form Code -->
+  <!-- <div class="col-md-4">
+      <form [formGroup]="liginForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          <label for="">User Id</label>
+          <input type="text" formControlName="uid" class="form-control" required>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" formControlName="pwd" class="form-control" required>
+        </div>
+  
+        <button type="submit" [disabled]="!liginForm.valid" class="btn btn-primary">Submit</button>
+      </form>
+    </div> -->
 </div>
 
 

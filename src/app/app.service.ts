@@ -35,7 +35,6 @@ export class AppService {
 
 
   setTitle(title1) {
-      debugger;
     this.title1.next(title1);
   }
 }

@@ -8,6 +8,6 @@ body{
     padding-right: 10px;
 }
 /* Making field validation */
-.form-control.ng-touched.ng-invalid{
+/* .form-control.ng-touched.ng-invalid{
     border: 2px solid red;
-}
+} */

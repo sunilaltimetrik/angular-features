@@ -1,0 +1,35 @@
+<form [formGroup]='reactiveForm' (ngSubmit)='login()'>
+  <!-- Form level validation -->
+  <div class="alert alert-warning" *ngIf='reactiveForm.errors'>Incorrect login id or password</div>
+  <div class="form-group">
+    <label for="">User Name</label>
+    <input type="text" class="form-control" formControlName='userName'>
+    <div *ngIf='userName.touched && userName.invalid' class="alert alert-danger">
+      <div *ngIf='userName.errors.required'>This field is required</div>
+      <div *ngIf='userName.errors.minlength'>Minimum length {{userName.errors.minlength.requiredLength}}</div>
+      <div *ngIf='userName.errors.spaceNotAllowed'>Space Not Allowed OR-> {{userName.errors.spaceNotAllowed}}</div>
+      <div *ngIf='userName.errors.uniqueName'>Name Already Exist</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="text" class="form-control" formControlName='password'>
+    <div *ngIf='password.pending'>Validating...</div>
+    <div *ngIf='password.touched && password.invalid' class="alert alert-danger">
+        <div *ngIf='password.errors.required'>This field is required</div>
+        <div *ngIf='password.errors.uniquePassword'>Old Password is not allowed</div>
+    </div>
+  </div>
+
+  <div formGroupName='address'>
+      <div class="form-group">
+          <label for="">Street</label>
+          <input type="text" class="form-control" formControlName='streetName'>
+      </div>
+      <div class="form-group">
+          <label for="">Door No</label>
+          <input type="text" class="form-control" formControlName='doorNo'>
+      </div>
+  </div>
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
