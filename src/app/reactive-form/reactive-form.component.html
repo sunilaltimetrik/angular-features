@@ -20,16 +20,39 @@
         <div *ngIf='password.errors.uniquePassword'>Old Password is not allowed</div>
     </div>
   </div>
-
+  <!-- formGroup -->
+  <div> <small>form formGroupName </small> </div>
   <div formGroupName='address'>
       <div class="form-group">
           <label for="">Street</label>
           <input type="text" class="form-control" formControlName='streetName'>
+          <div *ngIf='streetName.touched && streetName.invalid' class="alert alert-danger">
+            <div *ngIf='streetName.errors.required'>This field is required</div>
+          </div>
       </div>
       <div class="form-group">
           <label for="">Door No</label>
           <input type="text" class="form-control" formControlName='doorNo'>
+          <div *ngIf='doorNo.touched && doorNo.invalid' class="alert alert-danger">
+            <div *ngIf='doorNo.errors.required'>This field is required</div>
+            <div *ngIf='doorNo.errors.spaceNotAllowed'>space Not Allowed</div>
+          </div>
       </div>
   </div>
+
+  <!-- form Array  developing for dynamic add form-field as input box etc...-->
+<div><small>form Array</small>  </div>
+<label for="">Topics</label>
+ <input type="text" class="form-control" 
+  (keyup.enter)='addTopic(topic)' #topic>
+   <ul class="list-group">
+    <li 
+      *ngFor='let topic of topics.controls' 
+      class="list-group-item"
+      (click)='removeTopic(topic)'>
+      {{topic.value}}
+    </li>
+  </ul>
+
   <button class="btn btn-default" type="submit">Submit</button>
 </form>

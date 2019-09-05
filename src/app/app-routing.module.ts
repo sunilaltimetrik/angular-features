@@ -8,15 +8,19 @@ import { FileNotFoundComponent } from './file-not-found/file-not-found.component
 import { LoginComponent } from './login/login.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { ChildComponent } from './main-layout/child/child.component';
+import { PostsComponent } from './posts/posts.component';
 
 const appRoutes: Routes =[
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
+
   {path: 'main-dashboard', component: MainLayoutComponent, children: [
     { path: 'main-dashboard/child', component: ChildComponent}
   ]},
-  {path: 'dashboard', component: DashboardComponent},
+
+  {path: 'dashboard/:uid/:cid', component: DashboardComponent},
   {path: 'profile-detail', component: ProfileDetailComponent},
+  {path: 'post/:id', component: PostsComponent},
   {path: '**', component: FileNotFoundComponent}
 
 ];

@@ -29,6 +29,10 @@ import { MyAccordianComponent } from './my-accordian/my-accordian.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { PracticeTemplateDrivenFormComponent } from './practice-template-driven-form/practice-template-driven-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { PracticeReactiveChangePasswordFormComponent } from './practice-reactive-change-password-form/practice-reactive-change-password-form.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
+import { AppError } from './common/app-error'
 
 
 @NgModule({
@@ -51,7 +55,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     MyAccordianComponent,
     TemplateDrivenFormComponent,
     PracticeTemplateDrivenFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    PracticeReactiveChangePasswordFormComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [HeaderService],
+  providers: [HeaderService, PostService, AppError],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

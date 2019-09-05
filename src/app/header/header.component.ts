@@ -8,6 +8,11 @@ import { HeaderService } from '../header.service';
 })
 export class HeaderComponent implements OnInit {
   title = '';
+  post={
+    id: '1',
+    uid: 'u_11',
+    cid: 'c_C2'
+  }
   constructor(private headerService: HeaderService) { }
 
   ngOnInit() {

@@ -1,6 +1,4 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { resolve } from 'path';
-import { reject } from 'q';
 import { Observable } from 'rxjs';
 
 export class CustomFormFieldValidators {

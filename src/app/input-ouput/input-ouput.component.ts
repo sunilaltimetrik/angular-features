@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { emit } from 'cluster';
 
 @Component({
   selector: 'app-input-ouput',

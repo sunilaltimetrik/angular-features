@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { CustomFormFieldValidators } from '../common/custom-form-field.validators';
 
 @Component({
@@ -31,9 +31,34 @@ export class ReactiveFormComponent implements OnInit {
     address: new FormGroup({
       streetName: new FormControl('', Validators.required),
       doorNo: new FormControl('', [Validators.required, CustomFormFieldValidators.spaceNotAllowed])
-    })
+    }),
+
+    // Form Array
+    topics: new FormArray([])
   })
-  constructor() { }
+
+  // Using ***** FormBuilder ***** Approach :)
+  // constructor(private fb: FormBuilder) { 
+  //   this.reactiveForm = fb.group({
+  //     userName: ['',  
+  //       Validators.required,
+  //       Validators.minLength(5),
+  //       CustomFormFieldValidators.spaceNotAllowed,
+  //     ],
+      
+  //     password: ['',
+  //       Validators.required,
+  //       CustomFormFieldValidators.uniquePassword
+  //     ],
+
+  //     address: fb.group({
+  //       streetName: ['', Validators.required],
+  //       doorNo: ['', Validators.required, CustomFormFieldValidators.spaceNotAllowed]
+  //     }),
+
+  //     topics: fb.array([])
+  //   })
+  // }
 
   ngOnInit() {
   }
@@ -56,5 +81,21 @@ export class ReactiveFormComponent implements OnInit {
     });
     console.log(this.reactiveForm.value);
   }
-  
+
+  // Form Array
+  addTopic(topic: HTMLInputElement){
+    this.topics.push(new FormControl(topic.value));
+    // (this.reactiveForm.get('topics') as FormArray).push(new FormControl(topic.value));
+    topic.value = '';
+  }
+
+  get topics(){
+    return this.reactiveForm.get('topics') as FormArray;
+  }
+
+  removeTopic(topic: FormControl){
+    let topicIndex = this.topics.controls.indexOf(topic);
+    this.topics.removeAt(topicIndex);
+  }
 }
+
